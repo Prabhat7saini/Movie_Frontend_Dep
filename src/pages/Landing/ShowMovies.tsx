@@ -1,28 +1,28 @@
-import React, { useEffect, useState, useSyncExternalStore } from 'react';
-import { Grid } from '@mui/material';
-import MovieCard from '../../component/common/MovieCard';
+import React, { useEffect, useState } from "react";
+import { Grid } from "@mui/material";
+import MovieCard from "../../component/common/MovieCard";
 
-import {  useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
-import { RootState } from '../../redux/store';
-import Loader from '../../component/common/Loader';
+import { RootState } from "../../redux/store";
+import Loader from "../../component/common/Loader";
 
 const ShowMovies: React.FC = () => {
   const [movies, setMovies] = useState<any[]>([]);
 
-  const Movies=useSelector((state:RootState)=>state.movies.Movies);
-  
-  // const token: string = useSelector((state: RootState) => state.auth.token) as string 
-  const loading=useSelector((state:RootState)=>state.movies.loading)
- 
+  const Movies = useSelector((state: RootState) => state.movies.Movies);
+
+  // const token: string = useSelector((state: RootState) => state.auth.token) as string
+  const loading = useSelector((state: RootState) => state.movies.loading);
+
   useEffect(() => {
- 
     setMovies(Movies);
   }, [Movies]);
- 
 
-  return (
-    loading ?(<Loader/>):( <Grid container spacing={2} sx={{ marginTop: "5px" }}>
+  return loading ? (
+    <Loader />
+  ) : (
+    <Grid container spacing={2} sx={{ marginTop: "5px" }}>
       {movies.length > 0 ? (
         movies.map((ele, index) => (
           <Grid key={index} item xs={12}>
@@ -39,8 +39,7 @@ const ShowMovies: React.FC = () => {
       ) : (
         <></>
       )}
-    </Grid>)
-   
+    </Grid>
   );
 };
 

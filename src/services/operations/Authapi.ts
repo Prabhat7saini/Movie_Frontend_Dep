@@ -2,7 +2,7 @@ import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
 import { LoginResponse, user } from "../../utils/interface/types";
 import { setCurrentUser, setToken } from "../../redux/slices/authSlice";
-import { setFavMovie, setMovie } from "../../redux/slices/movieSlice";
+import { setFavMovie } from "../../redux/slices/movieSlice";
 import { NavigateFunction } from "react-router-dom";
 import { Dispatch } from "redux";
 import { toast } from "react-toastify";

@@ -14,7 +14,7 @@ export const useRegister = (): UseRegisterResponse => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
-  const register = async (newUser: SignUPdata) => {
+  const register = async () => {
     setLoading(true);
     setError(null);
     setSuccess(false);
